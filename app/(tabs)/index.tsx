@@ -36,7 +36,7 @@ export default function HomeScreen() {
         ) : (
           <View style={styles.navbar}>
           <TouchableOpacity><Text style={styles.navItem}>Inicio</Text></TouchableOpacity>
-          <TouchableOpacity><Text style={styles.navItem}>Contáctanos</Text></TouchableOpacity>
+<TouchableOpacity><Text onPress={() => router.replace('SettingsScreen')} style={styles.navItem}>Settings</Text></TouchableOpacity>
           <TouchableOpacity><Text style={styles.navItem}>{user?.username ? `${user.username}` : ''}</Text></TouchableOpacity>
           <TouchableOpacity><Text onPress={handleLogout} style={styles.navItem}>Cerrar Sesion</Text></TouchableOpacity>
         </View>
