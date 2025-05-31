@@ -52,7 +52,7 @@ const AccountSettingsScreen = () => {
     });
 
     try {
-      const response = await fetch('http://192.168.0.8:8000/api/user/upload-image', {
+      const response = await fetch('http://192.168.0.6:8000/api/user/upload-image', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${user.token}`,
