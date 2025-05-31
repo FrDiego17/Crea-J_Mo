@@ -15,15 +15,22 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Verificamos si ya hay sesión activa
   useEffect(() => {
     const checkSession = async () => {
       const session = await getUserSession();
       if (session) {
-        navigation.reset({
-          index: 0,
-          routes: [{ name: '(tabs)', params: { screen: 'index' } }],
-        });
+        const role = session.user?.role;
+        if (role === 'conductor') {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'ConductorScreen' }], 
+          });
+        } else {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: '(tabs)', params: { screen: 'index' } }],
+          });
+        }
       }
     };
     checkSession();
@@ -33,10 +40,19 @@ const LoginScreen = () => {
     const user = await login(username, password);
 
     if (user) {
-      navigation.navigate('(tabs)', {
-        screen: 'index',
-        params: { user: JSON.stringify(user.user) },
-      });
+      const role = user.user?.role;
+
+      if (role === 'conductor') {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'ConductorScreen' }],
+        });
+      } else {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: '(tabs)', params: { screen: 'index', user: JSON.stringify(user.user) } }],
+        });
+      }
     } else {
       setErrorMessage('Credenciales incorrectas');
     }
@@ -56,8 +72,6 @@ const LoginScreen = () => {
       <View style={styles.topImageContainer}>
         <Image source={require("./assets/topVector.png")} style={styles.topImage} />
       </View>
-      
-
 
       <Text style={styles.helloText}>Hello</Text>
       <Text style={styles.signInText}>Inicia Sesión</Text>
@@ -111,11 +125,8 @@ const LoginScreen = () => {
         <Image source={require("./assets/leftVector.png")} style={styles.leftVectorImage} />
       </View>
     </View>
-    
   );
 };
-
-
 
 export default LoginScreen;
 
@@ -216,12 +227,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 10,
   },
-
   BackArrow: {
     position: 'absolute',
     top: 50,
     left: 20,
     zIndex: 10,
-  },  
+  },
 });
-
