@@ -21,6 +21,6 @@ export default StartTripScreen;
 
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 20 },
-  title: { fontSize: 20, marginBottom: 20, color: "#ffffff" },
-  text: {color: '#ffffff'}
+  title: { fontSize: 20, marginBottom: 20, color: "black" },
+  text: {color: 'black'}
 });

@@ -80,6 +80,14 @@ export default function RootLayout() {
           }}
           />
           <Drawer.Screen
+            name="RutasScreen"
+            options={{
+            drawerLabel: 'Rutas',
+            title: 'Rutas',
+            drawerIcon: ({ color, size }) => <FontAwesome  name="map-pin" size={size} color={color} />
+          }}
+          />
+          <Drawer.Screen
             name="SettingsScreen"
             options={{
             drawerLabel: 'Ajustes',
@@ -95,6 +103,39 @@ export default function RootLayout() {
             },
           }}
           />
+          <Drawer.Screen
+            name="DetalleRutaScreen"
+            options={{
+            drawerItemStyle:{
+              display: 'none',
+            },
+          }}
+          />
+          <Drawer.Screen
+            name="RutaAbordadaScreen"
+            options={{
+            drawerItemStyle:{
+              display: 'none',
+            },
+          }}
+          />
+          <Drawer.Screen
+            name="StartTripScreen"
+            options={{
+            drawerItemStyle:{
+              display: 'none',
+            },
+          }}
+          />
+          <Drawer.Screen
+            name="ConductorScreen"
+            options={{
+            drawerLabel: 'Conductor mapa',
+            title: 'Mapa',
+            drawerIcon: ({ color, size }) => <FontAwesome  name="map" size={size} color={color} />
+          }}
+          />
+          
       </Drawer>
     </GestureHandlerRootView>
   );

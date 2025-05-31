@@ -1,13 +1,13 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { StackScreenProps } from '@react-navigation/stack';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { RootStackParamList } from '../types';
 
 // ⬇️ Tipo para las props de esta pantalla
 type Props = StackScreenProps<RootStackParamList, 'RutaAbordada'>;
 
-export default function RutaAbordadaScreen({ navigation }: Props) {
+export default function RutaAbordadaScreen({ navigation }: any) {
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Listo para abordar</Text>

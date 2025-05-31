@@ -1,20 +1,21 @@
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import * as React from 'react';
 
-import RutasScreen from './app/RutasScreen';
 import DetalleRutaScreen from './app/DetalleRutaScreen';
 import RutaAbordadaScreen from './app/RutaAbordadaScreen';
+import RutasScreen from './app/RutasScreen';
 
-import { RootStackParamList } from './types'; // asegúrate que este archivo existe
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Rutas" component={RutasScreen} />
+      <Stack.Navigator>
+        <Stack.Screen name="Rutas">
+          {(props)=> <RutasScreen {...props} />}
+          </Stack.Screen>
         <Stack.Screen name="DetalleRuta" component={DetalleRutaScreen} />
         <Stack.Screen name="RutaAbordada" component={RutaAbordadaScreen} />
       </Stack.Navigator>

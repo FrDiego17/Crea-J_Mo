@@ -1,17 +1,23 @@
-import React from 'react';
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
-import { StackScreenProps } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import * as React from 'react';
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { RootStackParamList, RutaType } from '../types'; // ajusta la ruta si es necesario
 
-type Props = StackScreenProps<RootStackParamList, 'Rutas'>;
+
 
 const rutas: RutaType[] = [
   { id: '1', destino: 'Apopa', nombre: 'Antonio Montana', tipo: 'Bus' },
   { id: '2', destino: 'San Martín', nombre: 'Alejandro Dominguez', tipo: 'Microbus' },
   // agrega más rutas...
 ];
-
-export default function RutasScreen({ navigation }: Props) {
+interface Props {
+  route: any;
+  navigation: NativeStackNavigationProp<RootStackParamList, 'DetalleRuta'>;
+}
+export default  (params: any) =>  {
+  const navigation: any = useNavigation()
+  console.log(navigation)
   return (
     <View style={styles.container}>
       <Text style={styles.titulo}>Rutas</Text>
@@ -20,7 +26,7 @@ export default function RutasScreen({ navigation }: Props) {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.card}
-            onPress={() => navigation.navigate('DetalleRuta', { ruta: item })}
+            onPress={() => navigation.navigate('DetalleRutaScreen')}
           >
             <Text style={styles.destino}>{item.destino}</Text>
             <Text>{item.nombre}</Text>

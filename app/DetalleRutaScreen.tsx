@@ -1,12 +1,15 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { StackScreenProps } from '@react-navigation/stack';
+import * as React from 'react';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { RootStackParamList } from '../types';
 
 type Props = StackScreenProps<RootStackParamList, 'DetalleRuta'>;
 
-export default function DetalleRutaScreen({ route, navigation }: Props) {
-  const { ruta } = route.params;
+export default function DetalleRutaScreen(props: any) {
+  const navigation: any = useNavigation()
+  //console.log(props)
+  const ruta: any = {}
 
   const horariosEntrada = [
     { parada: 'Gasolinera Puma', hora: '6:00 am' },
@@ -51,7 +54,7 @@ export default function DetalleRutaScreen({ route, navigation }: Props) {
         ))}
       </View>
 
-      <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate('RutaAbordada')}>
+      <TouchableOpacity style={styles.boton} onPress={() => navigation.navigate('RutaAbordadaScreen')}>
         <Text style={styles.botonTexto}>Abordar</Text>
       </TouchableOpacity>
     </ScrollView>
