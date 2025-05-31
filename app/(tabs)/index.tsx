@@ -24,7 +24,7 @@ export default function HomeScreen() {
   return (
     <ScrollView style={styles.container}>
 
-      <View style={styles.header}>
+      {/*<View style={styles.header}>
         <Text style={styles.logo}>U-Go!</Text>
         {!user ? (
         <View style={styles.navbar}>
@@ -41,7 +41,7 @@ export default function HomeScreen() {
           <TouchableOpacity><Text onPress={handleLogout} style={styles.navItem}>Cerrar Sesion</Text></TouchableOpacity>
         </View>
         )}
-      </View>
+      </View>*/}
 
       <View style={styles.heroContainer}>
         <View style={styles.heroOverlay}>
