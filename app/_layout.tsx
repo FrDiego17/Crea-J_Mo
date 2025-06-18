@@ -4,7 +4,6 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 import {Drawer} from 'expo-router/drawer';
-import { useColorScheme } from '@/hooks/useColorScheme';
 import { Gesture, GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Ionicons, AntDesign, FontAwesome  } from '@expo/vector-icons';
 import { DrawerContent, DrawerContentComponentProps, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
@@ -18,7 +17,6 @@ function CustomDrawerContent(props: DrawerContentComponentProps){
   )
 }
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
