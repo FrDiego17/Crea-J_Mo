@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "automatic",
+    "scheme": "creajmo",
     "ios": {
       "supportsTablet": true
     },
